@@ -1,0 +1,52 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.logo {
+  flex-shrink: 0;
+}
+
+.text-button {
+  flex-shrink: 0;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.text-button:hover{
+    background-color: transparent;
+    color: white;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  flex: 1;
+  max-width: 100%;
+}
+
+.input-with-icon i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+  pointer-events: none;
+}
+
+.input-with-icon input {
+  padding-left: 40px;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.avatar-icon{
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
+}

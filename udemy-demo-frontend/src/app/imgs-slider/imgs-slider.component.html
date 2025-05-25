@@ -1,0 +1,17 @@
+<p-carousel
+  [value]="courses"
+  [numVisible]="1"
+  [numScroll]="1"
+  [circular]="true"
+  [autoplayInterval]="3000"
+  [responsiveOptions]="responsiveOptions"
+  [showIndicators]="false"
+  [showNavigators]="true"
+  class="udemy-carousel"
+>
+  <ng-template let-course pTemplate="item">
+    <div class="course-card">
+      <img [src]="course.image" alt="{{course.title}}" />
+    </div>
+  </ng-template>
+</p-carousel>

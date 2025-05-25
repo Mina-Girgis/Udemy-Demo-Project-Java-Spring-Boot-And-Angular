@@ -1,0 +1,35 @@
+<p-toolbar class="header-toolbar">
+  <div class="p-toolbar-group-left header">
+    <img src="logo.png" alt="logo" width="80" height="30" class="logo"/>
+
+    <button pButton type="button" class="text-button"  label="Explore" (click)="overlay.toggle($event)"></button>
+
+    <div class="input-with-icon">
+      <i class="pi pi-search"></i>
+      <input pInputText placeholder="Search for a thing" />
+    </div>
+
+
+    <button pButton type="button" class="text-button" label="Udemy Business" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" class="text-button" label="Teach on Udemy" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" class="text-button" label="My learning" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" icon="pi pi-heart" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" icon="pi pi-car" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" icon="pi pi-bell" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
+    
+    <button type="button" class="avatar-icon" (click)="overlay.toggle($event)">
+        <p-avatar label="M" shape="circle" styleClass="mr-2"></p-avatar>
+    </button>
+    
+    <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true">
+      <div class="p-2" style="width: 250px;">
+        <h4 class="mb-2">Udemy Business</h4>
+        <p>Get your team access to 25,000+ top Udemy courses.</p>
+        <button pButton label="Learn more" class="mt-2 w-full"></button>
+      </div>
+    </p-overlayPanel>
+
+
+
+  </div>
+</p-toolbar>

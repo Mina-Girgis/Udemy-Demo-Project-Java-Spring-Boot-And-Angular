@@ -1,0 +1,53 @@
+.udemy-carousel .course-card {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.15);
+  background: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.udemy-carousel .course-card:hover {
+  /* transform: translateY(-8px); */
+  box-shadow: 0 10px 20px rgb(0 0 0 / 0.2);
+}
+
+.udemy-carousel .course-card img {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover;
+}
+
+.udemy-carousel .course-info {
+  padding: 0.5rem 0.75rem;
+}
+
+.udemy-carousel .course-info h4 {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.udemy-carousel .course-info p {
+  margin: 0;
+  color: #555;
+  font-size: 0.875rem;
+}
+
+/* Center arrows vertically */
+.udemy-carousel .p-carousel-prev,
+.udemy-carousel .p-carousel-next {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.udemy-carousel .p-carousel-prev:hover,
+.udemy-carousel .p-carousel-next:hover {
+  background-color: rgba(0,0,0,0.6);
+}

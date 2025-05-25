@@ -1,0 +1,16 @@
+.udemy-carousel .p-carousel-prev,
+.udemy-carousel .p-carousel-next {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.udemy-carousel .p-carousel-prev:hover,
+.udemy-carousel .p-carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+

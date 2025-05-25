@@ -1,0 +1,20 @@
+<h2>Recommended For You</h2>
+
+<p-carousel
+        [value]="itemsList"
+        [numVisible]="5"
+        [numScroll]="1"
+        [circular]="true"
+        [responsiveOptions]="responsiveOptions"
+        [showNavigators]="true"
+        [showIndicators]="false"
+        class="udemy-carousel"
+        >
+        <ng-template let-item pTemplate="item">   
+              <app-item [item]="item" /> 
+        </ng-template>
+            
+</p-carousel>
+
+<br>
+   
