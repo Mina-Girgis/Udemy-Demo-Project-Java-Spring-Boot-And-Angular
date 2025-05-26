@@ -1,0 +1,17 @@
+<div class="course-layout">
+  <div class="course-content">
+    <p-accordion [multiple]="true">
+      @for (section of item.content; track $index) {
+        <p-accordionTab [header]="section.title">
+          <ul class="lesson-list">
+            @for (lesson of section.lessons; track $index) {
+              <li>
+                <i class="pi pi-play-circle"></i> {{ lesson }}
+              </li>
+            }
+          </ul>
+        </p-accordionTab>
+      }
+    </p-accordion>
+  </div>
+</div>

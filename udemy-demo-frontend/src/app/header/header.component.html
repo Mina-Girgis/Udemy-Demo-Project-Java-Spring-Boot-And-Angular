@@ -1,7 +1,8 @@
 <p-toolbar class="header-toolbar">
   <div class="p-toolbar-group-left header">
-    <img src="logo.png" alt="logo" width="80" height="30" class="logo"/>
-
+    
+      <img src="logo.png" alt="logo" width="80" height="30" class="logo" (click)="onLogoClicked()"/>
+    
     <button pButton type="button" class="text-button"  label="Explore" (click)="overlay.toggle($event)"></button>
 
     <div class="input-with-icon">
@@ -21,11 +22,11 @@
         <p-avatar label="M" shape="circle" styleClass="mr-2"></p-avatar>
     </button>
     
-    <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true">
+    <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true" >
       <div class="p-2" style="width: 250px;">
-        <h4 class="mb-2">Udemy Business</h4>
+        <h4 class="mb-2">My Cart</h4>
         <p>Get your team access to 25,000+ top Udemy courses.</p>
-        <button pButton label="Learn more" class="mt-2 w-full"></button>
+        <button pButton label="View" class="mt-2 w-full" (click)="onClick()"></button>
       </div>
     </p-overlayPanel>
 

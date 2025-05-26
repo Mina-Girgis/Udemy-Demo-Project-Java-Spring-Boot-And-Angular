@@ -1,0 +1,95 @@
+.course-sidebar {
+  position: fixed;
+  /* top: 100px;  */
+  right: 24px;
+  width: 370px;
+  z-index: 1000;
+}
+
+.sidebar-card {
+  background-color: #1c1c1c; /* dark mode */
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.price {
+  margin: 16px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.buy-btn, .cart-btn {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 2.5rem;
+}
+
+.course-features {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 16px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.course-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.course-features li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.cart-fav-buttons {
+  display: flex;
+  gap: 12px; /* space between buttons */
+  margin-bottom: 10px;
+}
+
+.cart-btn, .fav-btn {
+  flex: 1; /* each button takes equal width */
+}
+
+.fav-btn {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  flex: 0.3;
+}
+
+.fav-btn:hover {
+  background-color: #e60023; /* Udemy red-like hover */
+  border-color: #e60023;
+  color: white;
+
+}
+
+
+@media (max-width: 950px) {
+  .main-content-container {
+    flex-direction: column; /* stack vertically */
+  }
+
+  .course-sidebar {
+    width: 100%;      /* full width */
+    position: static; /* remove sticky */
+    margin-top: 1rem; /* spacing below header */
+  }
+}

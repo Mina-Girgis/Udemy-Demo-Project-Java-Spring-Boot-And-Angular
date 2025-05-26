@@ -1,0 +1,19 @@
+<div class="cart-item">
+  <img [src]="item.thumbnail" alt="{{ item.title }}" class="thumbnail" />
+
+  <div class="item-info">
+    <h4 class="title" (click)="onTitleClick()">{{ item.title }}</h4>
+    <p class="instructor">{{ item.instructor }}</p>
+    <p class="rating">
+      @for (star of starsArray; track $index) {
+        <span>⭐</span>
+      }
+      {{ item.rating }}
+    </p>
+  </div>
+
+  <div class="item-actions">
+    <p class="price">{{ item.price| currency:'USD':'symbol':'1.2-2' }}</p>
+    <button pButton type="button" icon="pi pi-times" class="p-button-rounded p-button-text remove-btn" (click)="removeItem()">delete</button>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: #2a2a2a;
+  border-radius: 0.5rem;
+  color: white;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+
+.thumbnail {
+width: 5rem;
+height: 5rem;
+object-fit: cover;
+border-radius: 0.3rem;
+}
+
+.item-info {
+flex-grow: 1;
+overflow: hidden;
+
+.title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.instructor {
+    font-size: 0.85rem;
+    color: #bbb;
+    margin: 0.2rem 0;
+}
+
+.rating {
+    font-size: 0.8rem;
+    color: #ffb400;
+}
+}
+
+.item-actions {
+text-align: right;
+
+}
+
+
+
+.price {
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+    color: green;
+}
+
+.remove-btn {
+    color: #ff4d4f;
+}

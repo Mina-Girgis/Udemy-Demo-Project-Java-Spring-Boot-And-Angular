@@ -1,0 +1,27 @@
+<div class="course-sidebar" [ngStyle]="{ top: topValue }">
+  <div class="sidebar-card">
+    <div class="image-container">
+      <img [src]="item.imageUrl" alt="Course Image" class="course-image" />
+    </div>
+    <!-- <video width="100%" controls poster="course-thumbnail.jpg">
+      <source src={{item.videoLink}} type="video/mp4" />
+      Your browser does not support the video tag. -->
+    <!-- </video> -->
+
+    <h3 class="price">Price ${{item.price}}</h3>
+
+    
+    <div class="cart-fav-buttons">
+      <button pButton label="Add to Cart" class="cart-btn" (click)="onAddToCart()"></button>
+      <button pButton icon="pi pi-heart" class="fav-btn" aria-label="Favorite"></button>    
+    </div>
+    <button pButton label="Buy Now" class="buy-btn"></button>
+    
+
+    <ul class="course-features">
+      <li>Full lifetime access</li>
+      <li>Certificate of completion</li>
+      <li>Access on mobile and TV</li>
+    </ul>
+  </div>
+</div>

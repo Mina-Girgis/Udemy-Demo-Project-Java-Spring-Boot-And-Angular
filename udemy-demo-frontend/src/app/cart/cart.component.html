@@ -1,0 +1,23 @@
+
+<div class="container">
+    <h1 class="title">Shopping Cart</h1>
+    
+     <div class="box">
+        <div class="left-section">
+
+          @for (item of cartItems; track $index) {
+              <app-cart-item [item]="item" />
+          }
+
+     </div>
+
+    <div class="right-section summary-box">
+      <h3>Order Summary</h3>
+      <p>Total: <strong>${{totalPrice}}</strong></p>
+
+      <button pButton type="button" label="Checkout" class="p-button-success p-mt-2"></button>
+    </div>
+  </div>
+ 
+   
+</div>

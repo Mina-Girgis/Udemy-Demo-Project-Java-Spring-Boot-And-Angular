@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ItemComponent } from '../item/item.component';
 import { CarouselModule } from 'primeng/carousel';
-import { ItemModel } from '../../intercace/item-model';
+import { ItemModel } from '../../../intercace/item-model';
 
 @Component({
   selector: 'app-section',

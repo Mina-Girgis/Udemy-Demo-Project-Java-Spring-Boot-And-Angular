@@ -1,0 +1,59 @@
+::ng-deep .course-header-card .p-card {
+  background-color: #1e1e1e !important;
+  color: white !important;
+  border-radius: 0.5rem !important;
+  margin-top: 2rem;
+  margin-left:5rem ;
+  padding-left: 0;
+  width: 60%;
+}
+
+::ng-deep .p-card-body{
+  margin: 0;
+  padding-left: 0;
+}
+
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+  margin-left:5rem ;
+  max-width: 50%;
+}
+
+.course-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.course-subtitle {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.course-meta {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.instructor-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+.header-buttons button {
+  color: white;
+}
+
+
+@media (max-width: 950px) {
+  .header-content {
+    max-width: 100%;
+  }
+
+  ::ng-deep .course-header-card .p-card{
+    width: 100%;
+    margin-left:0rem ;
+  }
+}

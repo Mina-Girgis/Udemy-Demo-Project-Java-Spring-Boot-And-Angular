@@ -1,0 +1,24 @@
+<p-card class="course-header-card">
+  <div class="header-content">
+    <div class="text-content">
+      <h1 class="course-title">{{item.title}}</h1>
+      <p class="course-subtitle">
+        {{item.subTitle}}
+      </p>
+      <div class="course-meta">
+        <p-rating  [readonly]="true" class="mr-2"></p-rating>
+        <span>{{item.rating}}</span>
+        <span> ({{item.ratingCount}} ratings) • {{item.numberOfStudents}} students </span>
+        <br />
+        <small>Created by <span class="instructor-name">{{item.instructor}}</span></small>
+        <br />
+        <small>Last updated 05/2025 • English</small>
+      </div>
+      <div class="header-buttons mt-3">
+        <button pButton icon="pi pi-heart" label="Wishlist" class="p-button-text mr-2"></button>
+        <button pButton icon="pi pi-share-alt" label="Share" class="p-button-text mr-2"></button>
+        <button pButton icon="pi pi-gift" label="Gift this course" class="p-button-text"></button>
+      </div>
+    </div>
+  </div>
+</p-card>

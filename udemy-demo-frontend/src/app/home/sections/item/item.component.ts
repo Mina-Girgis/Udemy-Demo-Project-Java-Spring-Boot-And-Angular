@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { ItemModel } from '../../intercace/item-model';
+import { Router } from '@angular/router';
+import { ItemModel } from '../../../intercace/item-model';
 
 @Component({
   selector: 'app-item',
@@ -11,4 +12,9 @@ import { ItemModel } from '../../intercace/item-model';
 })
 export class ItemComponent {
   @Input({required:true}) item!:ItemModel;
+  constructor(private router: Router) {}
+
+  onItemClick(){
+    this.router.navigate(['/item', this.item.id]);
+  }
 }

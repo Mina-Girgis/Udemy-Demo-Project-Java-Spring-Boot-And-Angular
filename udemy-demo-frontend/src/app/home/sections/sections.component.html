@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>What To Learn ...</h1>
+
+    @for (section of data; track $index) {
+        <app-section [title]="section.title" [itemsList]="section.courses"/>
+    }
+    
+</div>
+
+
