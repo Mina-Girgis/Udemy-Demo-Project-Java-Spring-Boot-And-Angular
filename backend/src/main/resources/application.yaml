@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/demo-db
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+app:
+  api:
+    endpoints:
+      user: # USER ENDPOINTS
+        base-url: /api/v1/user
+        apis:
+          create-new-user:
+          get-user-by-id: /{userId}
+
+      course: # COURSE ENDPOINTS
+        base-url: /api/v1
+        apis:
+          create-new-course: /course
+          get-course-by-id: /course/{courseId}
+          get-courses-by-category: /courses
+
+      cart: # CART ENDPOINTS
+        base-url: /api/v1/carts
+        apis:
+          get-cart: /{cartId}
+          add-to-cart: /course/{courseId}
+          remove-from-cart: /{itemId}
+          buy-now: /{cartId}/buy
