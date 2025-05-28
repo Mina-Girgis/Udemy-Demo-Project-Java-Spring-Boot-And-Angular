@@ -1,20 +1,33 @@
-<h2>{{title}}</h2>
 
-<p-carousel
-        [value]="itemsList"
-        [numVisible]="5"
-        [numScroll]="1"
-        [circular]="true"
-        [responsiveOptions]="responsiveOptions"
-        [showNavigators]="true"
-        [showIndicators]="false"
-        class="udemy-carousel"
-        >
-        <ng-template let-item pTemplate="item">   
-              <app-item [item]="item" /> 
-        </ng-template>
-            
-</p-carousel>
+@if (isLoading) {
+      <div class="spinner-overlay">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+}
 
-<br>
+@if (!isLoading && courses==null) {
+      <h1>Network Error</h1>
+}
+
+@if (courses.length>0) {
+      <h2>{{title}}</h2>
+      <p-carousel
+            [value]="courses"
+            [numVisible]="5"
+            [numScroll]="1"
+            [circular]="true"
+            [responsiveOptions]="responsiveOptions"
+            [showNavigators]="true"
+            [showIndicators]="false"
+            class="udemy-carousel"
+            >
+            <ng-template let-item pTemplate="item">   
+                  <app-item [item]="item" /> 
+            </ng-template>
+                  
+      </p-carousel>
+      <br>
+}
+
+
    

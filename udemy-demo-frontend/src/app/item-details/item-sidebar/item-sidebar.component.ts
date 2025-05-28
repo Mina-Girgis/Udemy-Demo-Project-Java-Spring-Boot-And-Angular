@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { ItemModel } from '../../intercace/item-model';
 import { CartService } from '../../services/cart-service';
 import { MessageService } from 'primeng/api';
+import { Course } from '../../intercace/Course';
+import { Constants } from '../../constants/constants';
 
 @Component({
   selector: 'app-item-sidebar',
@@ -13,26 +14,29 @@ import { MessageService } from 'primeng/api';
   styleUrl: './item-sidebar.component.css'
 })
 export class ItemSidebarComponent {
-  @Input({required:true}) item!:ItemModel;
+  @Input({required:true}) item!:Course;
   topValue = '100px';
   constructor(private cartService: CartService,private messageService: MessageService) {}
   
   onAddToCart(){
-    this.cartService.addToCart({
-        id:this.item.id,
-        instructor:this.item.instructor,
-        price:this.item.price,
-        quantity:'1',
-        thumbnail:this.item.imageUrl,
-        title:this.item.title,
-        rating:this.item.rating,
+    this.cartService.addToCart(this.item.Id,Constants.userId).subscribe({
+      next:()=>{
+        this.messageService.add({ 
+        severity: 'success', 
+        summary: 'Added to Cart', 
+        detail: `${this.item.Title} was added to your cart.` 
+      });
+      },
+      complete:()=>{},
+      error:()=>{
+        this.messageService.add({ 
+        severity: 'error', 
+        summary: 'Item Cant be added',  
+      });
+      },
     });
+
     
-  this.messageService.add({ 
-      severity: 'success', 
-      summary: 'Added to Cart', 
-      detail: `${this.item.title} was added to your cart.` 
-    });
   }
 
 

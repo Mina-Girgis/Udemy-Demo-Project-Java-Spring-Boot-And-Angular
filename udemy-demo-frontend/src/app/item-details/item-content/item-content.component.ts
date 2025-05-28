@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { PanelModule } from 'primeng/panel';
-import { ItemModel } from '../../intercace/item-model';
+import { Course } from '../../intercace/Course';
 
 @Component({
   selector: 'app-item-content',
@@ -11,6 +11,6 @@ import { ItemModel } from '../../intercace/item-model';
   styleUrl: './item-content.component.css'
 })
 export class ItemContentComponent {
-  @Input({required:true}) item!:ItemModel;
+  @Input({required:true}) item!:Course;
 
 }

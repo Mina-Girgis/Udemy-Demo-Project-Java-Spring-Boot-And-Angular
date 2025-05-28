@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartItem } from '../../intercace/cart-item';
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart-service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { Constants } from '../../constants/constants';
 
 @Component({
   selector: 'app-cart-item',
@@ -13,8 +15,8 @@ import { Router } from '@angular/router';
 })
 export class CartItemComponent {
   @Input({required:true}) item!: CartItem;
-
-  constructor(private cartService:CartService,private route:Router){}
+  @Output() deleteItem = new EventEmitter<string>();
+  constructor(private messageService: MessageService,private cartService:CartService,private route:Router){}
 
   get starsArray() {
     const rating = this.item?.rating ? +this.item.rating : 0;
@@ -27,6 +29,26 @@ export class CartItemComponent {
   }
 
   removeItem() {
-    this.cartService.removeFromCart(this.item.id);
+    this.cartService.removeFromCart(this.item.id,Constants.userId).subscribe({
+      next:()=>{
+            this.messageService.add({ 
+            severity: 'success', 
+            summary: 'Item deleted', 
+            detail: `${this.item.title} was deleted from your cart.` 
+          });
+      },
+      complete:()=>{
+        this.deleteItem.emit(this.item.id);
+      },
+      error:()=>{
+            this.messageService.add({ 
+            severity: 'error', 
+            summary: 'Error when deleting',  
+          });
+      },
+    });
   }
+
+
+  
 }

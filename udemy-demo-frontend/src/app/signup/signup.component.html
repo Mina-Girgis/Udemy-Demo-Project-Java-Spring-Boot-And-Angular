@@ -1,0 +1,73 @@
+<div class="signup-container">
+  <div class="signup-photo">
+    <img src="signup.png" alt="Signup Image"/>
+  </div>
+  <form [formGroup]="signupForm" class="signup-form" (ngSubmit)="onSubmit()">
+    <h2>Create New Account</h2>
+    <div class="p-fluid">
+        
+        
+        <p-floatlabel class="custom-input" [variant]="'on'">
+            <input id="firstname" pInputText class="custom-input-field" name="firstname" formControlName="firstName"/>
+            <label for="firstname" class="custom-input-lable">First name</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="signupForm.get('firstName')?.invalid && (signupForm.get('firstName')?.touched || signupForm.get('firstName')?.dirty)">
+            @if (signupForm.get('firstName')?.errors?.['required']) {
+                <span class="error-message">First name is required.</span>
+            }
+            @if (signupForm.get('firstName')?.errors?.['minlength']) {
+                <span class="error-message">Minimum 3 characters required.</span>
+            }   
+        </small>
+
+
+
+        <p-floatlabel class="custom-input" [variant]="'on'">
+            <input id="lastName" class="custom-input-field" name="lastName"pInputText formControlName="lastName"/>
+            <label for="lastName" class="custom-input-lable">Last name</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="signupForm.get('lastName')?.invalid && (signupForm.get('lastName')?.touched || signupForm.get('lastName')?.dirty)">
+            @if (signupForm.get('lastName')?.errors?.['required']) {
+                <span class="error-message">Last name is required.</span>
+            }
+            @if (signupForm.get('lastName')?.errors?.['minlength']) {
+                <span class="error-message">Minimum 3 characters required.</span>
+            }   
+        </small>
+        
+
+
+        <p-floatlabel class="custom-input" [variant]="'on'" name="email" >
+            <input id="email" class="custom-input-field" pInputText formControlName="email"/>
+            <label for="email" class="custom-input-lable">Email</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)">
+            @if (signupForm.get('email')?.errors?.['required']) { 
+                <span class="error-message">Email is required.</span>
+            }
+            @if (signupForm.get('email')?.errors?.['email']) {
+                <span class="error-message">Must be a valid email</span>
+            }   
+        </small>
+        
+
+        
+        <p-floatlabel class="custom-input" [variant]="'on'">
+            <input id="password" type="password" class="custom-input-field" name="password" pInputText formControlName="password"/>
+            <label for="password" class="custom-input-lable">Password</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.touched || signupForm.get('password')?.dirty)">
+            @if (signupForm.get('password')?.errors?.['required']) {
+                <span class="error-message">Password is required.</span>
+            }
+            @if (signupForm.get('password')?.errors?.['minlength']) {
+                <span class="error-message">Minimum 6 characters required.</span>
+            }   
+        </small>
+        
+        <button pButton type="submit" label="Create Account" style="width:10rem ;" [loading]="isLoading" class="p-button-primary">
+           
+        </button>
+    </div>
+</form>
+</div>

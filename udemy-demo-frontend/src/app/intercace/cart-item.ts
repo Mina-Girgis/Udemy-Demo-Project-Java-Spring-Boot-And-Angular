@@ -1,5 +1,6 @@
 export interface CartItem {
   id: string;
+  courseId:string;
   title: string;
   instructor: string;
   thumbnail: string;

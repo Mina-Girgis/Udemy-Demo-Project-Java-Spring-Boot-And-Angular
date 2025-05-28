@@ -1,49 +1,50 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { CartItem } from "../intercace/cart-item";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  // Internal cart items state
-  private cartItems: CartItem[] = [];
+  constructor(private http: HttpClient) {}
 
-  // Observable cart stream
-  private cartItemsSubject: BehaviorSubject<CartItem[]> = new BehaviorSubject(this.cartItems);
-
-  constructor() {}
-
-  getCartItems(): Observable<CartItem[]> {
-    return this.cartItemsSubject.asObservable();
+  getCartItems(cartId:string): Observable<any> {
+    const baseUrl = `http://localhost:8080/api/v1/carts/${cartId}`;
+    return this.http.get(`${baseUrl}`);
   }
 
-  addToCart(item: CartItem): void {
-    const index = this.cartItems.findIndex(i => i.id === item.id);
+  addToCart(courseId:string,userId:string ) {
+    const baseUrl = `http://localhost:8080/api/v1/carts/course/${courseId}`;
+    const headers = new HttpHeaders({
+    'userId': userId
+    });
+    return this.http.post(baseUrl,{},{ headers });
+  };
 
-    if (index === -1) {
-      this.cartItems.push(item);
-    } else {
-      // Increase quantity if item exists
-    //   this.cartItems[index].quantity += item.quantity;
-    }
-
-    this.cartItemsSubject.next([...this.cartItems]);
+  removeFromCart(itemId: string,userId:string){
+    const baseUrl = `http://localhost:8080/api/v1/carts/${itemId}`;
+    console.log(baseUrl);
+    
+     const headers = new HttpHeaders({
+        'userId': userId
+    });
+    return this.http.delete(baseUrl,{ headers });
   }
 
-
-  removeFromCart(itemId: string): void {
-    this.cartItems = this.cartItems.filter(item => item.id !== itemId);
-    this.cartItemsSubject.next([...this.cartItems]);
+  checkOut(cartId:string){
+     const baseUrl = `http://localhost:8080/api/v1/carts/${cartId}/buy`;
+    console.log(baseUrl);
+    return this.http.post(baseUrl,{});
   }
 
   clearCart(): void {
-    this.cartItems = [];
-    this.cartItemsSubject.next([...this.cartItems]);
+    // this.cartItems = [];
+    // this.cartItemsSubject.next([...this.cartItems]);
   }
 
-  getTotalPrice(): number {
-    return this.cartItems.reduce((total, item) => total + (+item.price) * (+item.quantity), 0);
+  getTotalPrice(cartItems: CartItem[]): number {
+    return cartItems.reduce((total, item) => total + (+item.price) * (+item.quantity), 0);
   }
 }

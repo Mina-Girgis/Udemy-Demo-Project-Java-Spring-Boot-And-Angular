@@ -3,7 +3,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { CardModule } from 'primeng/card';
 import { RatingModule } from 'primeng/rating';
 import { ToolbarModule } from 'primeng/toolbar';
-import { ItemModel } from '../../intercace/item-model';
+import { Course } from '../../intercace/Course';
 
 @Component({
   selector: 'app-item-header',
@@ -13,5 +13,5 @@ import { ItemModel } from '../../intercace/item-model';
   styleUrl: './item-header.component.css'
 })
 export class ItemHeaderComponent {
-    @Input({required:true}) item!:ItemModel;
+    @Input({required:true}) item!:Course;
 }
