@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-category',
@@ -16,6 +17,8 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
   styleUrl: './category.component.css'
 })
 export class CategoryComponent {
+  constructor(private router: Router) {}
+  
   menuItems = [
     {
       label: 'Development',
@@ -33,4 +36,9 @@ export class CategoryComponent {
       ]
     }
   ];
+
+
+  onCategoryClicked(category:String){
+    this.router.navigate(['/courses'],{ queryParams: { category } });
+  }
 }

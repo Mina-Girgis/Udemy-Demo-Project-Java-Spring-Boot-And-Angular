@@ -5,5 +5,9 @@
         <p class="instructor">{{item.Instructor}}</p>
         <p class="rating">⭐ {{item.Rating}}</p>
         <p class="price">{{item.Price}}</p>
+        @if (item.IsPurchased) {
+            <i class="pi pi-check check-icon" ></i>
+        }
+       
     </div>
 </div>

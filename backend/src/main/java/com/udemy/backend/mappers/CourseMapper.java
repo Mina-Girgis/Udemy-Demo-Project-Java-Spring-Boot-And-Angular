@@ -12,6 +12,7 @@ import com.udemy.backend.entities.Lesson;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Component
@@ -36,7 +37,7 @@ public class CourseMapper {
                 .build();
     }
 
-    public GetCourseResponse mapToCourseResponse(Course course){
+    public GetCourseResponse mapToCourseResponse(Course course, boolean isPurchased, boolean mapContent, boolean isFav){
         return GetCourseResponse.builder()
                 .id(course.getId())
                 .price(course.getPrice())
@@ -49,7 +50,9 @@ public class CourseMapper {
                 .instructor(course.getInstructor())
                 .numberOfStudents(course.getNumberOfStudents())
                 .imageUrl(course.getImageUrl())
-                .content(mapToCourseContentResponse(course.getContent()))
+                .isPurchased(isPurchased)
+                .isFav(isFav)
+                .content(mapContent?mapToCourseContentResponse(course.getContent()):null)
                 .build();
     }
 

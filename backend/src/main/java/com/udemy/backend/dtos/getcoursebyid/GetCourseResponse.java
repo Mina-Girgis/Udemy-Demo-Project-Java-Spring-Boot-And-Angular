@@ -45,6 +45,12 @@ public class GetCourseResponse {
     @JsonProperty("ImageUrl")
     private String imageUrl;
 
+    @JsonProperty("IsPurchased")
+    private Boolean isPurchased;
+
+    @JsonProperty("IsFav")
+    private Boolean isFav;
+
     @JsonProperty("Content")
     private List<CourseContentResponse> content;
 

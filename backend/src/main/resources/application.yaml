@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./data/demo-db
+    url: jdbc:h2:file:./data/demo2-db
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -31,7 +31,9 @@ app:
           get-course-by-id: /course/{courseId}
           get-courses-by-category: /courses
           delete-all-courses: /courses
-
+          get-my-courses: /courses/my-learning
+          get-my-fav: /courses/favourites
+          add-fav-course: /courses/{courseId}/favourites
       cart: # CART ENDPOINTS
         base-url: /api/v1/carts
         apis:

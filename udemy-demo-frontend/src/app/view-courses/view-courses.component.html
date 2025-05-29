@@ -1,1 +1,9 @@
-<p>view-courses works!</p>
+
+<div class="mt-12 px-6">
+  <h1 class="text-2x2 font-bold ml-3 mb-4">{{category}}</h1>
+  <div class="items-container flex flex-wrap gap-4">
+    @for (item of courses; track $index) {
+      <app-item [item]="item"></app-item>
+    }
+  </div>
+</div>

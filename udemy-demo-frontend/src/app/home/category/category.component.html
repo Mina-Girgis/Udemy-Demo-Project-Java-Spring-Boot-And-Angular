@@ -1,21 +1,21 @@
 
   <div class="container">
-    <button pButton type="button" class="text-button" label="Development" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Business" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Finance" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="IT & Software" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Design" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Marketing" (mouseenter)="menu.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Health & Fitness" (mouseenter)="menu.toggle($event)"></button> 
-    <button pButton type="button" class="text-button" label="Music" (mouseenter)="menu.toggle($event)"></button>
+    <button pButton type="button" (click)="onCategoryClicked('Development')" class="text-button" label="Development" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('Business')" class="text-button" label="Business" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('Finance')" class="text-button" label="Finance" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('ItAndSoftware')" class="text-button" label="IT & Software" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('Design')" class="text-button" label="Design" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('Marketing')" class="text-button" label="Marketing" ></button>
+    <button pButton type="button" (click)="onCategoryClicked('HealthAndFitness')" class="text-button" label="Health & Fitness" ></button> 
+    <button pButton type="button" (click)="onCategoryClicked('Music')" class="text-button" label="Music" ></button>
 
-    <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true">
+    <!-- <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true">
       <div class="p-2" style="width: 250px;">
         <h4 class="mb-2">Udemy Business</h4>
         <p>Get your team access to 25,000+ top Udemy courses.</p>
         <button pButton label="Learn more" class="mt-2 w-full"></button>
       </div>
-    </p-overlayPanel>
+    </p-overlayPanel> -->
 
     <p-tieredMenu #menu [model]="menuItems" [popup]="true" [style]="{ width: '250px' }"></p-tieredMenu>
 </div>

@@ -10,12 +10,12 @@
           }
 
     </div>
-
+  
     <div class="right-section summary-box">
       <h3>Order Summary</h3>
       <p>Total: <strong>{{ totalPrice | currency:'USD':'symbol':'1.2-2' }}</strong></p>
 
-      <button pButton type="button" label="Checkout" class="p-button-success p-mt-2" (click)="onCheckOut()"></button>
+      <button pButton type="button" label="Checkout" class="p-button-success p-mt-2" [disabled]="cartItems.length==0"  (click)="onCheckOut()"></button>
     </div>
   </div>
  

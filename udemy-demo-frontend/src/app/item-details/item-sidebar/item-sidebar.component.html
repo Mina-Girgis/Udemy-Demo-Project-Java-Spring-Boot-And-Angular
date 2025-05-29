@@ -8,16 +8,23 @@
       Your browser does not support the video tag. -->
     <!-- </video> -->
 
-    <h3 class="price">Price ${{item.Price}}</h3>
-
+    @if (!item.IsPurchased){
+      <h3 class="price">Price ${{item.Price}}</h3>
+    }
     
     <div class="cart-fav-buttons">
-      <button pButton label="Add to Cart" class="cart-btn" (click)="onAddToCart()"></button>
-      <button pButton icon="pi pi-heart" class="fav-btn" aria-label="Favorite"></button>    
+      @if (!item.IsPurchased){
+        <button pButton label="Add to Cart" class="cart-btn" (click)="onAddToCart()"></button>
+      }
+      @if (item.IsPurchased){
+        <button pButton label="View Course" class="cart-btn"></button>
+      }
+      <button pButton icon="pi pi-heart" class="fav-btn" [ngClass]="{ 'fav-active': item.IsFav}" (click)="onAddToFaV()" aria-label="Favorite"></button>    
     </div>
-    <button pButton label="Buy Now" class="buy-btn"></button>
-    
-
+    @if (!item.IsPurchased){
+       <button pButton label="Buy Now" class="buy-btn"></button>
+    }
+  
     <ul class="course-features">
       <li>Full lifetime access</li>
       <li>Certificate of completion</li>

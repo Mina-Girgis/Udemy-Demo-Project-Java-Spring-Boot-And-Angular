@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface MyCourseRepository extends JpaRepository<MyCourses, String> {
-
+    List<MyCourses> findByUserId(String userId);
 
 
 }

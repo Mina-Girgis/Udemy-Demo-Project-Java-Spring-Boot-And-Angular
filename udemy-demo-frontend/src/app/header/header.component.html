@@ -13,16 +13,18 @@
 
     <button pButton type="button" class="text-button" label="Udemy Business" ></button>
     <button pButton type="button" class="text-button" label="Teach on Udemy" ></button>
-    <button pButton type="button" class="text-button" label="My learning"></button>
     
+    @if (isLoggedIn) {
+      <button pButton type="button" class="text-button" label="My learning" (click)="onClickMyLearning()"></button>
+    }
     @if (!isLoggedIn) {
       <button pButton type="button" class="text-button" label="Sign up" (click)="navigateToSignUp()"></button>
-      <button pButton type="button" class="text-button-primary" label="Sing in"  (click)="navigateToSignIn()"></button>
+      <button pButton type="button" class="text-button-primary" label="Sign in"  (click)="navigateToSignIn()"></button>
     
     }
     
     @if (isLoggedIn) {
-      <button pButton type="button" icon="pi pi-heart" class="p-button-rounded p-button-text"></button>
+      <button pButton type="button" icon="pi pi-heart" class="p-button-rounded p-button-text" (click)="onFavClicked()"></button>
       <button pButton type="button" icon="pi pi-car" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
       <button pButton type="button" icon="pi pi-bell" class="p-button-rounded p-button-text"></button>
     }

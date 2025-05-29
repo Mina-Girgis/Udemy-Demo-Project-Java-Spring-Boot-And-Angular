@@ -9,7 +9,7 @@
       <h1>Network Error</h1>
 }
 
-@if (courses.length>0) {
+@if (courses != undefined && courses.length > 0) {
       <h2>{{title}}</h2>
       <p-carousel
             [value]="courses"

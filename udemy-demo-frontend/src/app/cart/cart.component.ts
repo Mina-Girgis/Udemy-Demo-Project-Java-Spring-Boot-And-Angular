@@ -58,6 +58,7 @@ export class CartComponent implements OnInit{
   }
 
   onCheckOut(){
+    
     console.log("CHECK_OUT");
     const userId:string|undefined = extractUserIdToken();
     if(userId == undefined){

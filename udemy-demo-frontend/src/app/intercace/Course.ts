@@ -22,6 +22,8 @@ export interface Course {
   VideoLink: string;
   RatingCount: string;
   Price: string;
+  IsPurchased:boolean;
+  IsFav:boolean;
   ImageUrl: string;
   Content: Content[];
 }

@@ -6,6 +6,7 @@ import { MessageService } from 'primeng/api';
 import { Course } from '../../intercace/Course';
 import { Constants } from '../../constants/constants';
 import { extractUserIdToken } from '../../intercace/jwt-payload';
+import { DataService } from '../../services/data-service';
 
 @Component({
   selector: 'app-item-sidebar',
@@ -17,7 +18,7 @@ import { extractUserIdToken } from '../../intercace/jwt-payload';
 export class ItemSidebarComponent {
   @Input({required:true}) item!:Course;
   topValue = '100px';
-  constructor(private cartService: CartService,private messageService: MessageService) {}
+  constructor(private dataSetvice:DataService,private cartService: CartService,private messageService: MessageService) {}
   
   onAddToCart(){
     const userId:string|undefined = extractUserIdToken();
@@ -47,6 +48,22 @@ export class ItemSidebarComponent {
     });
 
     
+  }
+
+
+  onAddToFaV(){
+    this.dataSetvice.addFavCourse(this.item.Id).subscribe(()=>{
+       
+      if(!this.item.IsFav){
+          this.messageService.add({ 
+        severity: 'success', 
+        summary: 'Course added to your favorites', 
+        detail: `${this.item.Title}` 
+      });
+      }
+     
+      this.item.IsFav = !this.item.IsFav;
+    });
   }
 
 
