@@ -63,14 +63,14 @@ public class CartService {
         return RemoveFromCartResponse.builder().message(CART_ITEM_REMOVED).build();
     }
 
-    public GetCartItemsResponse getCartItems(String cardId){
-        Cart cart =  cartRepository.findById(cardId).orElseThrow(()-> new ApiCommonException(CART_IS_NOT_EXISTS_CODE,CART_IS_NOT_EXISTS_MESSAGE));
+    public GetCartItemsResponse getCartItems(String userId){
+        Cart cart =  cartRepository.findByUserId(userId).orElseThrow(()-> new ApiCommonException(CART_IS_NOT_EXISTS_CODE,CART_IS_NOT_EXISTS_MESSAGE));
         return cartMapper.mapToGetCartItemsResponse(cart);
     }
 
     @Transactional
-    public BuyNowResponse buyNow(String cardId){
-        Cart cart =  cartRepository.findById(cardId).orElseThrow(()-> new ApiCommonException(CART_IS_NOT_EXISTS_CODE,CART_IS_NOT_EXISTS_MESSAGE));
+    public BuyNowResponse buyNow(String userId){
+        Cart cart =  cartRepository.findByUserId(userId).orElseThrow(()-> new ApiCommonException(CART_IS_NOT_EXISTS_CODE,CART_IS_NOT_EXISTS_MESSAGE));
         List<MyCourses> myCourse = cart.getCartItems().stream().map(item-> MyCourses.builder()
                 .id(UUID.randomUUID().toString())
                 .userId(cart.getUserId())
@@ -80,7 +80,7 @@ public class CartService {
         myCourseRepository.saveAll(myCourse);
         cart.getCartItems().clear();
         cartRepository.save(cart);
-        return BuyNowResponse.builder().message("").build();
+        return BuyNowResponse.builder().message("Payment Completed").build();
     }
 
     private Cart createNewCart(String userId){

@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="login-photo">
+    <img src="signup.png" alt="login Image"/>
+  </div>
+  <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+    <div class="p-fluid">
+        <p-floatlabel class="custom-input" [variant]="'on'" name="email" >
+            <input id="email" class="custom-input-field" pInputText formControlName="email"/>
+            <label for="email" class="custom-input-lable">Email</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)">
+            @if (loginForm.get('email')?.errors?.['required']) { 
+                <span class="error-message">Email is required.</span>
+            }
+            @if (loginForm.get('email')?.errors?.['email']) {
+                <span class="error-message">Must be a valid email</span>
+            }   
+        </small>
+        
+
+        
+        <p-floatlabel class="custom-input" [variant]="'on'">
+            <input id="password" type="password" class="custom-input-field" name="password" pInputText formControlName="password"/>
+            <label for="password" class="custom-input-lable">Password</label>
+        </p-floatlabel>
+        <small class="p-error" *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)">
+            @if (loginForm.get('password')?.errors?.['required']) {
+                <span class="error-message">Password is required.</span>
+            }
+            @if (loginForm.get('password')?.errors?.['minlength']) {
+                <span class="error-message">Minimum 6 characters required.</span>
+            }   
+        </small>
+        
+        <button pButton type="submit" label="Create Account" style="width:10rem ;" [loading]="isLoading" class="p-button-primary">
+           
+        </button>
+    </div>
+</form>
+</div>

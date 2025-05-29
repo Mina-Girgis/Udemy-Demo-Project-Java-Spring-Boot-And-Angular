@@ -5,6 +5,7 @@ import { CartService } from '../../services/cart-service';
 import { MessageService } from 'primeng/api';
 import { Course } from '../../intercace/Course';
 import { Constants } from '../../constants/constants';
+import { extractUserIdToken } from '../../intercace/jwt-payload';
 
 @Component({
   selector: 'app-item-sidebar',
@@ -19,7 +20,16 @@ export class ItemSidebarComponent {
   constructor(private cartService: CartService,private messageService: MessageService) {}
   
   onAddToCart(){
-    this.cartService.addToCart(this.item.Id,Constants.userId).subscribe({
+    const userId:string|undefined = extractUserIdToken();
+    if(userId == undefined){
+      console.log("error");
+      this.messageService.add({ 
+        severity: 'error', 
+        summary: 'Item Cant be added',  
+      });
+      return;
+    }
+    this.cartService.addToCart(this.item.Id,userId).subscribe({
       next:()=>{
         this.messageService.add({ 
         severity: 'success', 

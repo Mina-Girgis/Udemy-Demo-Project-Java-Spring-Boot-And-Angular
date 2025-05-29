@@ -17,6 +17,10 @@ import { TooltipModule } from 'primeng/tooltip';
 export class HeaderComponent {
 constructor(private router: Router) {}
   @ViewChild('overlay') overlayPanel!: OverlayPanel  
+  isLoading = false;
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
   onClick(){
     this.router.navigate(['/cart']);
@@ -27,5 +31,19 @@ constructor(private router: Router) {}
      this.router.navigate(['/home']);
   }
 
+  navigateToSignUp(){
+     this.router.navigate(['/signup']);
+  }
 
+  navigateToSignIn(){
+    this.router.navigate(['/login']);
+  }
+
+
+  logout(){
+    this.isLoading=false;
+    localStorage.removeItem('token');
+    this.router.navigate(['/home']);
+    this.isLoading=true;
+  }
 } 

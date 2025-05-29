@@ -10,8 +10,8 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
-  getCartItems(cartId:string): Observable<any> {
-    const baseUrl = `http://localhost:8080/api/v1/carts/${cartId}`;
+  getCartItems(userId:string): Observable<any> {
+    const baseUrl = `http://localhost:8080/api/v1/carts/${userId}`;
     return this.http.get(`${baseUrl}`);
   }
 
@@ -33,10 +33,10 @@ export class CartService {
     return this.http.delete(baseUrl,{ headers });
   }
 
-  checkOut(cartId:string){
-     const baseUrl = `http://localhost:8080/api/v1/carts/${cartId}/buy`;
+  checkOut(userId:string){
+    const baseUrl = `http://localhost:8080/api/v1/carts/buy`;
     console.log(baseUrl);
-    return this.http.post(baseUrl,{});
+    return this.http.post(baseUrl,{},{headers:{userId:userId}});
   }
 
   clearCart(): void {

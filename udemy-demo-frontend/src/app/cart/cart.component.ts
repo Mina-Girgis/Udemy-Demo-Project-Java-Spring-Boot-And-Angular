@@ -8,6 +8,7 @@ import { MessageService } from 'primeng/api';
 import { CurrencyPipe } from '@angular/common';
 import { CartMapperService } from '../services/cart-mapper-service';
 import { Constants } from '../constants/constants';
+import { extractUserIdToken } from '../intercace/jwt-payload';
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +25,12 @@ export class CartComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.cartSubscription = this.cartService.getCartItems(Constants.cartId).subscribe({
+    const userId:string|undefined = extractUserIdToken();
+    if(userId == undefined){
+      console.log("error");
+      return;
+    }
+    this.cartSubscription = this.cartService.getCartItems(userId).subscribe({
         next:(data:any)=>{
             this.cartItems = data.CartItems.map((item:any)=>this.cartMapperService.mapToCartItem(item))
              this.changeTotalPrice();
@@ -53,8 +59,12 @@ export class CartComponent implements OnInit{
 
   onCheckOut(){
     console.log("CHECK_OUT");
-    
-    this.cartService.checkOut(Constants.cartId).subscribe({
+    const userId:string|undefined = extractUserIdToken();
+    if(userId == undefined){
+      console.log("error");
+      return;
+    }
+    this.cartService.checkOut(userId).subscribe({
       next:()=>{
         this.cartItems=[]; 
         this.messageService.add({ 

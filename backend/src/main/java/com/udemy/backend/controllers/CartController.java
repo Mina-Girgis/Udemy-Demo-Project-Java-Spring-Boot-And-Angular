@@ -32,15 +32,18 @@ public class CartController {
 
 
     @GetMapping("${app.api.endpoints.cart.apis.get-cart}")
-    public ResponseEntity<GetCartItemsResponse> getCartItemsResponse(@PathVariable(CART_ID) String cartId) {
-        GetCartItemsResponse response = cartService.getCartItems(cartId);
+    public ResponseEntity<GetCartItemsResponse> getCartItemsResponse(@PathVariable(USER_ID) String userId) {
+        GetCartItemsResponse response = cartService.getCartItems(userId);
         return ResponseEntity.status(200).body(response);
     }
 
     @PostMapping("${app.api.endpoints.cart.apis.buy-now}")
-    public ResponseEntity<BuyNowResponse> buyNow(@PathVariable(CART_ID) String cartId){
+    public ResponseEntity<BuyNowResponse> buyNow(@RequestHeader(USER_ID) String cartId){
         BuyNowResponse response = cartService.buyNow(cartId);
         return ResponseEntity.status(200).body(response);
     }
+
+
+
 
 }

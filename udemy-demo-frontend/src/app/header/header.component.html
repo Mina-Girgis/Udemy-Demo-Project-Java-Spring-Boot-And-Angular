@@ -3,7 +3,7 @@
     
       <img src="logo.png" alt="logo" width="80" height="30" class="logo" (click)="onLogoClicked()"/>
     
-    <button pButton type="button" class="text-button"  label="Explore" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" class="text-button"  label="Explore" ></button>
 
     <div class="input-with-icon">
       <i class="pi pi-search"></i>
@@ -11,24 +11,44 @@
     </div>
 
 
-    <button pButton type="button" class="text-button" label="Udemy Business" (click)="overlay.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="Teach on Udemy" (click)="overlay.toggle($event)"></button>
-    <button pButton type="button" class="text-button" label="My learning" (click)="overlay.toggle($event)"></button>
-    <button pButton type="button" icon="pi pi-heart" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
-    <button pButton type="button" icon="pi pi-car" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
-    <button pButton type="button" icon="pi pi-bell" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
+    <button pButton type="button" class="text-button" label="Udemy Business" ></button>
+    <button pButton type="button" class="text-button" label="Teach on Udemy" ></button>
+    <button pButton type="button" class="text-button" label="My learning"></button>
     
-    <button type="button" class="avatar-icon" (click)="overlay.toggle($event)">
+    @if (!isLoggedIn) {
+      <button pButton type="button" class="text-button" label="Sign up" (click)="navigateToSignUp()"></button>
+      <button pButton type="button" class="text-button-primary" label="Sing in"  (click)="navigateToSignIn()"></button>
+    
+    }
+    
+    @if (isLoggedIn) {
+      <button pButton type="button" icon="pi pi-heart" class="p-button-rounded p-button-text"></button>
+      <button pButton type="button" icon="pi pi-car" class="p-button-rounded p-button-text" (click)="overlay.toggle($event)"></button>
+      <button pButton type="button" icon="pi pi-bell" class="p-button-rounded p-button-text"></button>
+    }
+    
+    @if (isLoggedIn) {
+      <button type="button" class="avatar-icon" (click)="profileOverlay.toggle($event)">
         <p-avatar label="M" shape="circle" styleClass="mr-2"></p-avatar>
     </button>
+    }
+    
     
     <p-overlayPanel #overlay [dismissable]="true" [showCloseIcon]="true" >
       <div class="p-2" style="width: 250px;">
-        <h4 class="mb-2">My Cart</h4>
-        <p>Get your team access to 25,000+ top Udemy courses.</p>
-        <button pButton label="View" class="mt-2 w-full" (click)="onClick()"></button>
+        <h4 class="">My Cart</h4>
+        <!-- <p>Get your team access to 25,000+ top Udemy courses.</p> -->
+        <button pButton label="View Cart" class="p-button-primary p-button-sm w-full" (click)="onClick()"></button>
       </div>
     </p-overlayPanel>
+
+
+    <p-overlayPanel #profileOverlay [dismissable]="true" [showCloseIcon]="true">
+    <div class="p-3" style="width: 260px;">
+      <button pButton type="button"  label="View Profile" icon="pi pi-user" class="p-button-text p-button-sm mb-2 w-full"></button>
+      <button pButton type="button" [loading]="isLoading" label="Logout" icon="pi pi-sign-out" class="p-button-primary p-button-sm w-full" (click)="logout(); profileOverlay.hide()"></button>
+    </div>
+</p-overlayPanel>
 
 
 

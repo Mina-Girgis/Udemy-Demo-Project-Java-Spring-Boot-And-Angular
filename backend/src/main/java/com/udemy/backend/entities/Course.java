@@ -50,7 +50,7 @@ public class Course {
     @Column(name = "IMAGE_URL")
     private String imageUrl;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     @JoinColumn(name = "COURSE_ID")
     private List<CourseContent> content;
 }

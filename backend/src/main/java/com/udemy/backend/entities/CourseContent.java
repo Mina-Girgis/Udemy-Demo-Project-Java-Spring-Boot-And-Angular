@@ -26,7 +26,7 @@ public class CourseContent {
     @Column(name = "TITLE")
     private String title;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     @JoinColumn(name = "COURSE_CONTENT_ID")
     private List<Lesson> lessons;
 

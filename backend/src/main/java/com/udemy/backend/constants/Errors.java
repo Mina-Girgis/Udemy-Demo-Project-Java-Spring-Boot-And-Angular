@@ -15,4 +15,6 @@ public class Errors {
     public static final String CART_ITEM_ALREADY_EXISTS_CODE = "E1102566";
     public static final String CART_ITEM_ALREADY_EXISTS_MESSAGE = "Course is already exists in the cart";
 
+    public static final String EMAIL_OR_PASSWORD_NOT_CORRECT_CODE = "E1102566";
+    public static final String EMAIL_OR_PASSWORD_NOT_CORRECT_MESSAGE = "Incorrect email or password";
 }

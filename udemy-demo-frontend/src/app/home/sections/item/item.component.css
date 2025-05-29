@@ -61,10 +61,10 @@
 
 @media (max-width: 461px) {
   .course-card {
-    width: 90vw;          /* slightly smaller width */
-    transform: scale(0.85); /* shrink whole card */
+    width: 80vw;          
+    transform: scale(0.85); 
     transform-origin: top left; /* scale from top-left */
-    margin: 0 auto 1rem;  /* center horizontally and add bottom space */
+    margin: 0 auto 1rem; 
   }
 
   .course-card img {

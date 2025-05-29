@@ -9,6 +9,7 @@ import com.udemy.backend.mappers.CourseMapper;
 import com.udemy.backend.repositories.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,10 +37,15 @@ public class CourseService {
         return courseMapper.mapToCourseResponse(course);
     }
 
-
+    @Transactional
     public List<GetCourseResponse> getCoursesByCategory(String category){
         List<Course> courses = courseRepository.findByCategory(category);
         return courses.parallelStream().map(courseMapper::mapToCourseResponse).toList();
+    }
+
+
+    public void deleteAllCourses(){
+        courseRepository.deleteAll();
     }
 
 

@@ -41,6 +41,11 @@ public class CourseController {
         return ResponseEntity.status(200).body(response);
     }
 
+    @DeleteMapping("${app.api.endpoints.course.apis.delete-all-courses}")
+    public ResponseEntity<Void>deleteAllCourses(){
+        courseService.deleteAllCourses();
+        return ResponseEntity.status(204).body(null);
+    }
 
 
 }
