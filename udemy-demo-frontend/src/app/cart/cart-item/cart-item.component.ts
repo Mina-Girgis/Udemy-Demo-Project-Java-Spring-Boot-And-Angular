@@ -4,8 +4,6 @@ import { CurrencyPipe } from '@angular/common';
 import { CartService } from '../../services/cart-service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { Constants } from '../../constants/constants';
-import { extractUserIdToken } from '../../intercace/jwt-payload';
 
 @Component({
   selector: 'app-cart-item',
@@ -30,12 +28,7 @@ export class CartItemComponent {
   }
 
   removeItem() {
-    const userId:string|undefined = extractUserIdToken();
-    if(userId == undefined){
-      console.log("error");
-      return;
-    }
-    this.cartService.removeFromCart(this.item.id,userId).subscribe({
+    this.cartService.removeFromCart(this.item.id).subscribe({
       next:()=>{
             this.messageService.add({ 
             severity: 'success', 

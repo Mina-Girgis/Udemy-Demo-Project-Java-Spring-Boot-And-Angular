@@ -66,7 +66,7 @@ public class CourseService {
     public List<GetCourseResponse> getMyCourses(String userId) {
         List<MyCourses> myCourses = myCourseRepository.findByUserId(userId);
         return myCourses.parallelStream()
-                .map(course -> courseMapper.mapToCourseResponse(course.getCourse(),true,false,false))
+                .map(course -> courseMapper.mapToCourseResponse(course.getCourse(),true,false,null))
                 .toList();
     }
 
@@ -90,7 +90,7 @@ public class CourseService {
         List<MyFavourite> myCourses = myFavCourseRepository.findByUserId(userId);
         Set<String> myCourseIds = userId != null ? findMyCourses(userId):Set.of();
         return myCourses.parallelStream()
-                .map(course -> courseMapper.mapToCourseResponse(course.getCourse(),myCourseIds.contains(course.getId()),false,false))
+                .map(course -> courseMapper.mapToCourseResponse(course.getCourse(),myCourseIds.contains(course.getId()),false,true))
                 .toList();
     }
 

@@ -37,7 +37,7 @@ app:
       cart: # CART ENDPOINTS
         base-url: /api/v1/carts
         apis:
-          get-cart: /{userId}
+          get-cart: /
           add-to-cart: /course/{courseId}
           remove-from-cart: /{itemId}
           buy-now: /buy

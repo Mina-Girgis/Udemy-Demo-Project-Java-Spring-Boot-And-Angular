@@ -25,12 +25,7 @@ export class CartComponent implements OnInit{
 
 
   ngOnInit(): void {
-    const userId:string|undefined = extractUserIdToken();
-    if(userId == undefined){
-      console.log("error");
-      return;
-    }
-    this.cartSubscription = this.cartService.getCartItems(userId).subscribe({
+    this.cartSubscription = this.cartService.getCartItems().subscribe({
         next:(data:any)=>{
             this.cartItems = data.CartItems.map((item:any)=>this.cartMapperService.mapToCartItem(item))
              this.changeTotalPrice();
@@ -58,14 +53,7 @@ export class CartComponent implements OnInit{
   }
 
   onCheckOut(){
-    
-    console.log("CHECK_OUT");
-    const userId:string|undefined = extractUserIdToken();
-    if(userId == undefined){
-      console.log("error");
-      return;
-    }
-    this.cartService.checkOut(userId).subscribe({
+    this.cartService.checkOut().subscribe({
       next:()=>{
         this.cartItems=[]; 
         this.messageService.add({ 

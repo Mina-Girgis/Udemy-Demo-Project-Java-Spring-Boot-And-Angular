@@ -1,0 +1,1185 @@
+{
+	"info": {
+		"_postman_id": "ed2a63ec-b907-43f3-b536-909a5c6cd87a",
+		"name": "A-Udemy-Demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39258748"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const idValue = responseJson.Id;\r",
+									"pm.collectionVariables.set(\"USER_ID\", idValue);\r",
+									"console.log(\"Saved courseId:\", idValue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"FirstName\": \"John\",\r\n  \"LastName\": \"Doe\",\r\n  \"Email\": \"mina123@gmail.com\",\r\n  \"Password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/user",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"FirstName\": \"John\",\r\n  \"LastName\": \"Doe\",\r\n  \"Email\": \"test@gmail.com\",\r\n  \"Password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/user/",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 09:38:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"2ad20f7c-bc77-4482-9329-25fd377933da\",\n    \"Email\": \"test@gmail.com\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const idValue = responseJson.Token;\r",
+									"pm.collectionVariables.set(\"TOKEN\", idValue);\r",
+									"console.log(\"Saved courseId:\", idValue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"test2@gmail.com\", \r\n  \"Password\": \"123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/user/login",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"FirstName\": \"John\",\r\n  \"LastName\": \"Doe\",\r\n  \"Email\": \"test@gmail.com\",\r\n  \"Password\": \"123456789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/user/",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"user",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 09:38:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"2ad20f7c-bc77-4482-9329-25fd377933da\",\n    \"Email\": \"test@gmail.com\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Create Course",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const idValue = responseJson.Id;\r",
+									"pm.collectionVariables.set(\"COURSE_ID\", idValue);\r",
+									"console.log(\"Saved courseId:\", idValue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"How To Start A Business\",\r\n  \"SubTitle\": \"Learn how to start your own business with differnet plans\",\r\n  \"Instructor\": \"Richel Antonio\",\r\n  \"Rating\": \"4.3\",\r\n  \"NumberOfStudents\": \"1525\",\r\n  \"VideoLink\": \"https://example.com/course-intro\",\r\n  \"RatingCount\": \"240\",\r\n  \"Category\":\"Business\",\r\n  \"Price\": \"36.99\",\r\n  \"ImageUrl\": \"https://www.lingoskop.de/wp-content/uploads/2020/07/Business-English-300x300.png\",\r\n  \"Content\": [\r\n    {\r\n      \"Title\": \"Getting Started\",\r\n      \"Lessons\": [\r\n        {\r\n          \"Title\": \"Introduction to Spring Boot\",\r\n          \"Description\": \"Overview and setup\",\r\n          \"VideoUrl\": \"https://example.com/video1\"\r\n        },\r\n        {\r\n          \"Title\": \"Spring Boot Basics\",\r\n          \"Description\": \"Core concepts explained\",\r\n          \"VideoUrl\": \"https://example.com/video2\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"Title\": \"Advanced Topics\",\r\n      \"Lessons\": [\r\n        {\r\n          \"Title\": \"Security in Spring Boot\",\r\n          \"Description\": \"How to secure your app\",\r\n          \"VideoUrl\": \"https://example.com/video3\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/course",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"course"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Title\": \"Java Spring Boot Masterclass\",\r\n  \"SubTitle\": \"Learn Spring Boot from scratch 2\",\r\n  \"Instructor\": \"John Doe\",\r\n  \"Rating\": \"4.8\",\r\n  \"NumberOfStudents\": \"1200\",\r\n  \"VideoLink\": \"https://example.com/course-intro\",\r\n  \"RatingCount\": \"350\",\r\n  \"Category\":\"Development\",\r\n  \"Price\": \"99.99\",\r\n  \"ImageUrl\": \"https://example.com/image.jpg\",\r\n  \"Content\": [\r\n    {\r\n      \"Title\": \"Getting Started\",\r\n      \"Lessons\": [\r\n        {\r\n          \"Title\": \"Introduction to Spring Boot\",\r\n          \"Description\": \"Overview and setup\",\r\n          \"VideoUrl\": \"https://example.com/video1\"\r\n        },\r\n        {\r\n          \"Title\": \"Spring Boot Basics\",\r\n          \"Description\": \"Core concepts explained\",\r\n          \"VideoUrl\": \"https://example.com/video2\"\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"Title\": \"Advanced Topics\",\r\n      \"Lessons\": [\r\n        {\r\n          \"Title\": \"Security in Spring Boot\",\r\n          \"Description\": \"How to secure your app\",\r\n          \"VideoUrl\": \"https://example.com/video3\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/course",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"course"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:46:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"07a74fc7-010f-4296-bbd2-b881c1fa89da\",\n    \"Title\": \"Java Spring Boot Masterclass\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Course By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/course/:courseId",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"course",
+								":courseId"
+							],
+							"variable": [
+								{
+									"key": "courseId",
+									"value": "{{COURSE_ID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:44:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"23409e2c-bfc6-41c6-a895-0daefd44d1df\",\n    \"Title\": \"Java Spring Boot Masterclass\",\n    \"SubTitle\": \"Learn Spring Boot from scratch 2\",\n    \"Instructor\": \"John Doe\",\n    \"Rating\": \"4.8\",\n    \"NumberOfStudents\": \"1200\",\n    \"Category\": \"Development\",\n    \"VideoLink\": \"https://example.com/course-intro\",\n    \"RatingCount\": \"350\",\n    \"Price\": \"99.99\",\n    \"ImageUrl\": \"https://example.com/image.jpg\",\n    \"Content\": [\n        {\n            \"Id\": \"1e72caf8-c345-433b-9a14-9288e98abfdc\",\n            \"Title\": \"Getting Started\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"7a0d6142-5a63-4ef9-b304-927446cb2620\",\n                    \"Title\": \"Introduction to Spring Boot\",\n                    \"Description\": \"Overview and setup\",\n                    \"VideoUrl\": \"https://example.com/video1\"\n                },\n                {\n                    \"Id\": \"8e8f0a2a-f944-44b3-954a-485d245f9894\",\n                    \"Title\": \"Spring Boot Basics\",\n                    \"Description\": \"Core concepts explained\",\n                    \"VideoUrl\": \"https://example.com/video2\"\n                }\n            ]\n        },\n        {\n            \"Id\": \"5891dc53-21c3-4965-b39a-c5493a3b6031\",\n            \"Title\": \"Advanced Topics\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"34075b97-a987-4471-9ffe-aa3bfdcf77e7\",\n                    \"Title\": \"Security in Spring Boot\",\n                    \"Description\": \"How to secure your app\",\n                    \"VideoUrl\": \"https://example.com/video3\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Fav Courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/courses/favourites",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"favourites"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:44:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"23409e2c-bfc6-41c6-a895-0daefd44d1df\",\n    \"Title\": \"Java Spring Boot Masterclass\",\n    \"SubTitle\": \"Learn Spring Boot from scratch 2\",\n    \"Instructor\": \"John Doe\",\n    \"Rating\": \"4.8\",\n    \"NumberOfStudents\": \"1200\",\n    \"Category\": \"Development\",\n    \"VideoLink\": \"https://example.com/course-intro\",\n    \"RatingCount\": \"350\",\n    \"Price\": \"99.99\",\n    \"ImageUrl\": \"https://example.com/image.jpg\",\n    \"Content\": [\n        {\n            \"Id\": \"1e72caf8-c345-433b-9a14-9288e98abfdc\",\n            \"Title\": \"Getting Started\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"7a0d6142-5a63-4ef9-b304-927446cb2620\",\n                    \"Title\": \"Introduction to Spring Boot\",\n                    \"Description\": \"Overview and setup\",\n                    \"VideoUrl\": \"https://example.com/video1\"\n                },\n                {\n                    \"Id\": \"8e8f0a2a-f944-44b3-954a-485d245f9894\",\n                    \"Title\": \"Spring Boot Basics\",\n                    \"Description\": \"Core concepts explained\",\n                    \"VideoUrl\": \"https://example.com/video2\"\n                }\n            ]\n        },\n        {\n            \"Id\": \"5891dc53-21c3-4965-b39a-c5493a3b6031\",\n            \"Title\": \"Advanced Topics\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"34075b97-a987-4471-9ffe-aa3bfdcf77e7\",\n                    \"Title\": \"Security in Spring Boot\",\n                    \"Description\": \"How to secure your app\",\n                    \"VideoUrl\": \"https://example.com/video3\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Fav Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/courses/:courseId/favourites",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								":courseId",
+								"favourites"
+							],
+							"variable": [
+								{
+									"key": "courseId",
+									"value": "{{COURSE_ID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:44:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"23409e2c-bfc6-41c6-a895-0daefd44d1df\",\n    \"Title\": \"Java Spring Boot Masterclass\",\n    \"SubTitle\": \"Learn Spring Boot from scratch 2\",\n    \"Instructor\": \"John Doe\",\n    \"Rating\": \"4.8\",\n    \"NumberOfStudents\": \"1200\",\n    \"Category\": \"Development\",\n    \"VideoLink\": \"https://example.com/course-intro\",\n    \"RatingCount\": \"350\",\n    \"Price\": \"99.99\",\n    \"ImageUrl\": \"https://example.com/image.jpg\",\n    \"Content\": [\n        {\n            \"Id\": \"1e72caf8-c345-433b-9a14-9288e98abfdc\",\n            \"Title\": \"Getting Started\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"7a0d6142-5a63-4ef9-b304-927446cb2620\",\n                    \"Title\": \"Introduction to Spring Boot\",\n                    \"Description\": \"Overview and setup\",\n                    \"VideoUrl\": \"https://example.com/video1\"\n                },\n                {\n                    \"Id\": \"8e8f0a2a-f944-44b3-954a-485d245f9894\",\n                    \"Title\": \"Spring Boot Basics\",\n                    \"Description\": \"Core concepts explained\",\n                    \"VideoUrl\": \"https://example.com/video2\"\n                }\n            ]\n        },\n        {\n            \"Id\": \"5891dc53-21c3-4965-b39a-c5493a3b6031\",\n            \"Title\": \"Advanced Topics\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"34075b97-a987-4471-9ffe-aa3bfdcf77e7\",\n                    \"Title\": \"Security in Spring Boot\",\n                    \"Description\": \"How to secure your app\",\n                    \"VideoUrl\": \"https://example.com/video3\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Courses By Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3M2Q5ZjJlZi04ZjhkLTQzNTMtYjVkNi01ZWE5MWIwODBkOWEiLCJpYXQiOjE3NDg2OTM2NjEsImV4cCI6MTc0ODcwMDg2MX0.O8x0Tk7q5LZO_FfQ7Z3Kk8AlamtLJo3MtW7d1N_saAU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/courses?category=Development",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "Development",
+									"description": "Development - Business - Finance - ItAndSoftware - Design - Marketing - HealthAndFitness - Music"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/courses?category=Development",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"courses"
+									],
+									"query": [
+										{
+											"key": "category",
+											"value": "Development",
+											"description": "Development - Business - Finance - ItAndSoftware - Design - Marketing - HealthAndFitness - Music"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:46:25 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"Id\": \"07a74fc7-010f-4296-bbd2-b881c1fa89da\",\n        \"Title\": \"Java Spring Boot Masterclass\",\n        \"SubTitle\": \"Learn Spring Boot from scratch 2\",\n        \"Instructor\": \"John Doe\",\n        \"Rating\": \"4.8\",\n        \"NumberOfStudents\": \"1200\",\n        \"Category\": \"Development\",\n        \"VideoLink\": \"https://example.com/course-intro\",\n        \"RatingCount\": \"350\",\n        \"Price\": \"99.99\",\n        \"ImageUrl\": \"https://example.com/image.jpg\",\n        \"Content\": [\n            {\n                \"Id\": \"7d282558-c27f-436b-8fb4-58525d9cf3e2\",\n                \"Title\": \"Getting Started\",\n                \"Lessons\": [\n                    {\n                        \"Id\": \"4d76bddf-18d1-45e4-9f8e-1bb54cb3c546\",\n                        \"Title\": \"Introduction to Spring Boot\",\n                        \"Description\": \"Overview and setup\",\n                        \"VideoUrl\": \"https://example.com/video1\"\n                    },\n                    {\n                        \"Id\": \"b08f1bef-e3a4-4522-9a81-37eb26a683e1\",\n                        \"Title\": \"Spring Boot Basics\",\n                        \"Description\": \"Core concepts explained\",\n                        \"VideoUrl\": \"https://example.com/video2\"\n                    }\n                ]\n            },\n            {\n                \"Id\": \"7c0c175c-7bce-4375-8d41-67deeb441ff0\",\n                \"Title\": \"Advanced Topics\",\n                \"Lessons\": [\n                    {\n                        \"Id\": \"d8dafcb7-c1e6-41bd-9f62-3258cfa44427\",\n                        \"Title\": \"Security in Spring Boot\",\n                        \"Description\": \"How to secure your app\",\n                        \"VideoUrl\": \"https://example.com/video3\"\n                    }\n                ]\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get My Learning",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/courses/my-learning",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"my-learning"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"course",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 10:44:04 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"23409e2c-bfc6-41c6-a895-0daefd44d1df\",\n    \"Title\": \"Java Spring Boot Masterclass\",\n    \"SubTitle\": \"Learn Spring Boot from scratch 2\",\n    \"Instructor\": \"John Doe\",\n    \"Rating\": \"4.8\",\n    \"NumberOfStudents\": \"1200\",\n    \"Category\": \"Development\",\n    \"VideoLink\": \"https://example.com/course-intro\",\n    \"RatingCount\": \"350\",\n    \"Price\": \"99.99\",\n    \"ImageUrl\": \"https://example.com/image.jpg\",\n    \"Content\": [\n        {\n            \"Id\": \"1e72caf8-c345-433b-9a14-9288e98abfdc\",\n            \"Title\": \"Getting Started\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"7a0d6142-5a63-4ef9-b304-927446cb2620\",\n                    \"Title\": \"Introduction to Spring Boot\",\n                    \"Description\": \"Overview and setup\",\n                    \"VideoUrl\": \"https://example.com/video1\"\n                },\n                {\n                    \"Id\": \"8e8f0a2a-f944-44b3-954a-485d245f9894\",\n                    \"Title\": \"Spring Boot Basics\",\n                    \"Description\": \"Core concepts explained\",\n                    \"VideoUrl\": \"https://example.com/video2\"\n                }\n            ]\n        },\n        {\n            \"Id\": \"5891dc53-21c3-4965-b39a-c5493a3b6031\",\n            \"Title\": \"Advanced Topics\",\n            \"Lessons\": [\n                {\n                    \"Id\": \"34075b97-a987-4471-9ffe-aa3bfdcf77e7\",\n                    \"Title\": \"Security in Spring Boot\",\n                    \"Description\": \"How to secure your app\",\n                    \"VideoUrl\": \"https://example.com/video3\"\n                }\n            ]\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/courses",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add To Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const idValue = responseJson.Id;\r",
+									"const cartId = responseJson.CartId;\r",
+									"pm.collectionVariables.set(\"ITEM_ID\", idValue);\r",
+									"pm.collectionVariables.set(\"CART_ID\", cartId);\r",
+									"console.log(\"Saved courseId:\", idValue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3M2Q5ZjJlZi04ZjhkLTQzNTMtYjVkNi01ZWE5MWIwODBkOWEiLCJpYXQiOjE3NDg3MDIwMjYsImV4cCI6MTc0ODcwOTIyNn0.CwR-nMfEGWixR18tZXs2KPwtS6eigOY6mbg8VCUo9yI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/carts/course/:courseId",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"course",
+								":courseId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "courseId",
+									"value": "{{COURSE_ID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "userId",
+										"value": "{{USER_ID}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/carts/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"carts",
+										"course",
+										":courseId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 12:14:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"e8ab30f6-3a24-4313-809f-0032ed32afac\",\n    \"Message\": \"Course added to the Cart\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();\r",
+									"const idValue = responseJson.Id;\r",
+									"pm.collectionVariables.set(\"ITEM_ID\", idValue);\r",
+									"console.log(\"Saved courseId:\", idValue);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/carts/:cartId",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								":cartId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "cartId",
+									"value": "{{CART_ID}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "userId",
+										"value": "{{USER_ID}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{HOST}}:{{PORT}}/api/v1/carts/course/:courseId",
+									"host": [
+										"{{HOST}}"
+									],
+									"port": "{{PORT}}",
+									"path": [
+										"api",
+										"v1",
+										"carts",
+										"course",
+										":courseId"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "{{COURSE_ID}}"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 May 2025 12:14:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Id\": \"e8ab30f6-3a24-4313-809f-0032ed32afac\",\n    \"Message\": \"Course added to the Cart\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Buy Now",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3M2Q5ZjJlZi04ZjhkLTQzNTMtYjVkNi01ZWE5MWIwODBkOWEiLCJpYXQiOjE3NDg2OTM2NjEsImV4cCI6MTc0ODcwMDg2MX0.O8x0Tk7q5LZO_FfQ7Z3Kk8AlamtLJo3MtW7d1N_saAU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/carts/buy",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								"buy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove From Cart",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "userId",
+								"value": "{{USER_ID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{HOST}}:{{PORT}}/api/v1/carts/:itemId",
+							"host": [
+								"{{HOST}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"api",
+								"v1",
+								"carts",
+								":itemId"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "itemId",
+									"value": "{{ITEM_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "PORT",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "COURSE_ID",
+			"value": ""
+		},
+		{
+			"key": "USER_ID",
+			"value": ""
+		},
+		{
+			"key": "ITEM_ID",
+			"value": ""
+		},
+		{
+			"key": "CART_ID",
+			"value": ""
+		},
+		{
+			"key": "TOKEN",
+			"value": ""
+		}
+	]
+}

@@ -37,7 +37,7 @@ public class CourseMapper {
                 .build();
     }
 
-    public GetCourseResponse mapToCourseResponse(Course course, boolean isPurchased, boolean mapContent, boolean isFav){
+    public GetCourseResponse mapToCourseResponse(Course course, boolean isPurchased, boolean mapContent, Boolean isFav){
         return GetCourseResponse.builder()
                 .id(course.getId())
                 .price(course.getPrice())

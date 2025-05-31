@@ -8,6 +8,12 @@ export interface JwtPayload {
 }
 
 
+
+export const getToken=()=>{
+  return localStorage.getItem('token');
+
+}
+
 export const extractUserIdToken = ()=>{
     const token = localStorage.getItem('token');
     if (token) {

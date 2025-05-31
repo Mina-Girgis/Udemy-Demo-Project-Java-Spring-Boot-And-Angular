@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable } from "rxjs";
+import { Observable } from "rxjs";
 import { CartItem } from "../intercace/cart-item";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { getToken } from "../intercace/jwt-payload";
 
 @Injectable({
   providedIn: 'root'
@@ -10,33 +11,46 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
-  getCartItems(userId:string): Observable<any> {
-    const baseUrl = `http://localhost:8080/api/v1/carts/${userId}`;
-    return this.http.get(`${baseUrl}`);
+  getCartItems(): Observable<any> {
+    const token:string = getToken()||"";    
+    const baseUrl = `http://localhost:8080/api/v1/carts/`;
+    const headers: any = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+    return this.http.get(`${baseUrl}`,{headers});
   }
 
-  addToCart(courseId:string,userId:string ) {
+  addToCart(courseId:string ) {
+    const token:string = getToken()||"";    
     const baseUrl = `http://localhost:8080/api/v1/carts/course/${courseId}`;
-    const headers = new HttpHeaders({
-    'userId': userId
-    });
-    return this.http.post(baseUrl,{},{ headers });
+    const headers: any = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+    return this.http.post(baseUrl,{},{headers});
   };
 
-  removeFromCart(itemId: string,userId:string){
+  removeFromCart(itemId: string){
+    const token:string = getToken()||"";    
     const baseUrl = `http://localhost:8080/api/v1/carts/${itemId}`;
     console.log(baseUrl);
-    
-     const headers = new HttpHeaders({
-        'userId': userId
-    });
-    return this.http.delete(baseUrl,{ headers });
+    const headers: any = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+    return this.http.delete(baseUrl,{headers});
   }
 
-  checkOut(userId:string){
+  checkOut(){
+    const token:string = getToken()||""; 
     const baseUrl = `http://localhost:8080/api/v1/carts/buy`;
     console.log(baseUrl);
-    return this.http.post(baseUrl,{},{headers:{userId:userId}});
+    const headers: any = {};
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+    return this.http.post(baseUrl,{},{headers});
   }
 
   clearCart(): void {

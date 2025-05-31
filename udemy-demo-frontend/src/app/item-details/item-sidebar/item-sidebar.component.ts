@@ -21,16 +21,8 @@ export class ItemSidebarComponent {
   constructor(private dataSetvice:DataService,private cartService: CartService,private messageService: MessageService) {}
   
   onAddToCart(){
-    const userId:string|undefined = extractUserIdToken();
-    if(userId == undefined){
-      console.log("error");
-      this.messageService.add({ 
-        severity: 'error', 
-        summary: 'Item Cant be added',  
-      });
-      return;
-    }
-    this.cartService.addToCart(this.item.Id,userId).subscribe({
+    
+    this.cartService.addToCart(this.item.Id).subscribe({
       next:()=>{
         this.messageService.add({ 
         severity: 'success', 
@@ -39,7 +31,9 @@ export class ItemSidebarComponent {
       });
       },
       complete:()=>{},
-      error:()=>{
+      error:(err)=>{
+        console.log(err);
+        
         this.messageService.add({ 
         severity: 'error', 
         summary: 'Item Cant be added',  
