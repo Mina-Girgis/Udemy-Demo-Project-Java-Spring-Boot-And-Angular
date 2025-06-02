@@ -1,18 +1,31 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { ItemDetailsComponent } from './item-details/item-details.component';
-import { HomeComponent } from './home/home.component';
-import { CartComponent } from './cart/cart.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { ViewCoursesComponent } from './view-courses/view-courses.component';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo:'/home',pathMatch:'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'item/:id', component: ItemDetailsComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'courses', component: ViewCoursesComponent },
+  { path: '', redirectTo:'/home', pathMatch:'full' },
+  { 
+    path: 'home',
+    loadComponent: () => import('./home/home.component').then(m => m.HomeComponent)
+  },
+  { 
+    path: 'item/:id',
+    loadComponent: () => import('./item-details/item-details.component').then(m => m.ItemDetailsComponent)
+  },
+  { 
+    path: 'cart',
+    loadComponent: () => import('./cart/cart.component').then(m => m.CartComponent),
+    canActivate: [authGuard]
+  },
+  { 
+    path: 'signup',
+    loadComponent: () => import('./signup/signup.component').then(m => m.SignupComponent)
+  },
+  { 
+    path: 'login',
+    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
+  },
+  { 
+    path: 'courses',
+    loadComponent: () => import('./view-courses/view-courses.component').then(m => m.ViewCoursesComponent)
+  },
 ];

@@ -16,16 +16,15 @@ export class SectionComponent implements OnInit{
   @Input({required:true}) category!:string;
   @Input({required:true}) title!:string;
   isLoading=false;
-  courses!:Course[];
+  courses?:Course[];
   constructor(private dataService: DataService) {}
   ngOnInit(): void {
-    this.isLoading=true;
     this.loadCourses();
-    this.isLoading=false;
   }
 
 
   loadCourses(){
+     this.isLoading=true;
       this.dataService.getCoursesByCategory(this.category).subscribe({
       next: (courses) => {
         console.log(courses);
@@ -38,6 +37,7 @@ export class SectionComponent implements OnInit{
         console.log('Course loading finished.');
       }
     });
+    this.isLoading=false;
   }
 
   responsiveOptions = [

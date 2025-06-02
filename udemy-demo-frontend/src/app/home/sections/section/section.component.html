@@ -5,9 +5,6 @@
     </div>
 }
 
-@if (!isLoading && courses==null) {
-      <h1>Network Error</h1>
-}
 
 @if (courses != undefined && courses.length > 0) {
       <h2>{{title}}</h2>
@@ -27,6 +24,12 @@
                   
       </p-carousel>
       <br>
+}@else {
+      
+}
+
+@if (!isLoading && courses==null) {
+      <h1>Network Error</h1>
 }
 
 

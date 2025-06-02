@@ -12,7 +12,7 @@ import { SectionComponent } from './section/section.component';
 export class SectionsComponent {
   data:{title:string,category:string}[]=[
     {
-      title:"Recommend For You ..",
+      title:"Recommend For You",
       category:"Development",
     },
     {

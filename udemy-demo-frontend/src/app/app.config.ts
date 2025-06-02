@@ -8,6 +8,7 @@ import Aura from "@primeng/themes/aura"
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 
 export const appConfig: ApplicationConfig = {
@@ -17,6 +18,8 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideAnimations(),
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService,
     importProvidersFrom(ProgressSpinnerModule),
     providePrimeNG({
       theme:{
