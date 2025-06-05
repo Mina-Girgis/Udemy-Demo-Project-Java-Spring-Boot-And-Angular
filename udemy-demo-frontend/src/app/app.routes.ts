@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth-guard';
+import { GuestOnlyGuard } from './guards/guest-only-guard';
 
 export const routes: Routes = [
   { path: '', redirectTo:'/home', pathMatch:'full' },
@@ -18,10 +19,12 @@ export const routes: Routes = [
   },
   { 
     path: 'signup',
+    canActivate:[GuestOnlyGuard],
     loadComponent: () => import('./signup/signup.component').then(m => m.SignupComponent)
   },
   { 
     path: 'login',
+    canActivate:[GuestOnlyGuard],
     loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
   },
   { 

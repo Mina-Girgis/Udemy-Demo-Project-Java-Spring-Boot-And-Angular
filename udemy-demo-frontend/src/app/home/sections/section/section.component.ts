@@ -42,7 +42,7 @@ export class SectionComponent implements OnInit{
 
   responsiveOptions = [
     { breakpoint: '1000px', numVisible: 3, numScroll: 1 },
-    { breakpoint: '740px', numVisible: 1, numScroll: 1 },
-    { breakpoint: '560px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '740px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '560px', numVisible: 1, numScroll: 1 },
   ];
 }

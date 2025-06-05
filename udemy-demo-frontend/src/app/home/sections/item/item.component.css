@@ -72,18 +72,19 @@
 
 @media (max-width: 461px) {
   .course-card {
-    width: 80vw;          
+    width: 50vw;          
     transform: scale(0.85); 
-    transform-origin: top left; /* scale from top-left */
+    transform-origin: top left; 
     margin: 0 auto 1rem; 
   }
 
   .course-card img {
-    height: 140px;         /* smaller image height */
+    height: 140px;        
+
     object-fit: cover;
   }
 
   .course-info {
-    font-size: 0.9rem;    /* smaller font */
+    font-size: 0.9rem;   
   }
 }

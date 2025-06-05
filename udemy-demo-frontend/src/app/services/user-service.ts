@@ -1,18 +1,17 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { User } from "../intercace/user";
-import { MessageService } from "primeng/api";
-
+import { environment } from '../../environments/environment.dev';
+import { HttpService } from "./http-service";
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private httpService: HttpService) {}
 
     signUp(user:User){
-      const baseUrl = "http://localhost:8080/api/v1/user";
-      return this.http.post(`${baseUrl}`,{
+      const url = `${environment.api.endpoints.user.createNewUser}`;
+      return this.httpService.post(url,{
           "FirstName":user.firstName,
           "LastName": user.lastName,
           "Email": user.email,
@@ -22,10 +21,8 @@ export class UserService {
 
 
     login(email:string,password:string){
-      console.log("HERE",email,password);
-      
-      const baseUrl = "http://localhost:8080/api/v1/user/login";
-      return this.http.post(`${baseUrl}`,{
+      const url = `${environment.api.endpoints.user.login}`;
+      return this.httpService.post(url,{
           "Email": email,
           "Password": password
       });

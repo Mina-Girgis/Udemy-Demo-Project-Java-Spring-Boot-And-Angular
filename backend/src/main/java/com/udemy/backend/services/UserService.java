@@ -10,15 +10,10 @@ import com.udemy.backend.mappers.UserMapper;
 import com.udemy.backend.repositories.UserRepository;
 import com.udemy.backend.utils.JwtUtil;
 import com.udemy.backend.utils.PasswordUtil;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Date;
 import java.util.Optional;
 
 import static com.udemy.backend.constants.Errors.*;

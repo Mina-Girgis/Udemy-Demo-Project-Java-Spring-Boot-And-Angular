@@ -24,7 +24,7 @@ export class CartItemComponent {
   
 
   onTitleClick(){
-    this.route.navigate(['/item', this.item.id]);
+    this.route.navigate(['/item', this.item.courseId]);
   }
 
   removeItem() {

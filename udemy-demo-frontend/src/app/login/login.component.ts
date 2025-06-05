@@ -8,6 +8,7 @@ import { UserService } from '../services/user-service';
 import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { Router } from '@angular/router';
+import { TokenService } from '../services/token-service';
 @Component({
   selector: 'app-login',
   standalone:true,
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-constructor(private router: Router,private userService:UserService,private messageService:MessageService){}
+constructor(private tokenService:TokenService,private router: Router,private userService:UserService,private messageService:MessageService){}
   isLoading = false;
   loginForm = new FormGroup({
       email : new FormControl('', [Validators.required, Validators.email]),
@@ -36,8 +37,7 @@ constructor(private router: Router,private userService:UserService,private messa
     if(email&&password){
       this.userService.login(email,password).subscribe({
         next:(response:any)=>{
-          console.log(response.Token);
-          localStorage.setItem('token', response.Token);
+          this.tokenService.saveToken(response.Token);
           this.messageService.add({ 
             severity: 'success', 
             summary: 'Login Successfully', 
