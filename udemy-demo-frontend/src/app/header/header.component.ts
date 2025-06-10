@@ -7,6 +7,7 @@ import { OverlayPanel, OverlayPanelModule } from 'primeng/overlaypanel';
 import { ToolbarModule } from 'primeng/toolbar';
 import { TooltipModule } from 'primeng/tooltip';
 import { Constants } from '../constants/constants';
+import { TokenService } from '../services/token-service';
 
 @Component({
   selector: 'app-header',
@@ -16,11 +17,12 @@ import { Constants } from '../constants/constants';
   imports: [ToolbarModule, InputTextModule, ButtonModule, AvatarModule, TooltipModule,OverlayPanelModule],
 })
 export class HeaderComponent {
-constructor(private router: Router) {}
+constructor(private router: Router, private tokenService:TokenService) {}
   @ViewChild('overlay') overlayPanel!: OverlayPanel  
   isLoading = false;
+  
   get isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
+    return this.tokenService.getToken()?true:false;
   }
 
   onClick(){
@@ -55,7 +57,7 @@ constructor(private router: Router) {}
 
   logout(){
     this.isLoading=true;
-    localStorage.removeItem('token');
+    this.tokenService.deleteToken();
     this.router.navigate(['/home']).then(()=>{
       location.reload();
     });
