@@ -112,7 +112,6 @@ npm start
 - `POST /api/v1/user` - User registration
 - `POST /api/v1/user/login` - User authentication
 - `GET /api/v1/user/{userId}` - Get current user details
-- `POST /api/auth/logout` - User logout
 
 
 ### Course Management
@@ -128,7 +127,7 @@ npm start
 - `GET /api/v1/carts` - Get user's cart items
 - `POST /api/v1/carts/course/{courseId}` - Add course to car
 - `DELETE /api/v1/carts/{itemId}` - Remove item from cart
-- `DELETE /api/carts/buy` - Buy now
+- `DELETE /api/v1/carts/buy` - Buy now
 
 
 ## 🎯 Learning Outcomes
